@@ -12,13 +12,13 @@ function App() {
             <BrowserRouter>
                 <div className='mobile-menu'>
                     <NavLink className='nav-link' to='/'></NavLink>
-                    <NavLink className='mobile-link' to='/view_more'>
+                    <NavLink className='nav-link' to='/results'>
                         view more
                     </NavLink>
                 </div>
                 <Switch>
                     <Route exact path='/' component={CompanyList} />
-                    <Route exact path='/view_more' component={SearchResults} />
+                    <Route exact path='/results' component={SearchResults} />
                 </Switch>
             </BrowserRouter>
         </div>
