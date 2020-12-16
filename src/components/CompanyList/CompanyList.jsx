@@ -34,7 +34,7 @@ const CompanyList = () => {
             <Table className={classes.table} aria-label='simple table'>
                 <TableHead>
                     <TableRow>
-                        <TableCell>Dessert (100g serving)</TableCell>
+                        <TableCell>Company Name</TableCell>
                         <TableCell align='right'>Calories</TableCell>
                         <TableCell align='right'>Fat&nbsp;(g)</TableCell>
                         <TableCell align='right'>Carbs&nbsp;(g)</TableCell>

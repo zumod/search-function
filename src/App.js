@@ -8,16 +8,16 @@ function App() {
     return (
         <div className='App'>
             <SearchBar />
-            <CompanyList/>
 
             <BrowserRouter>
                 <div className='mobile-menu'>
-                    <NavLink exact className='mobile-link' to='/view_more'>
-                        <i class='far fa-user-circle' />
+                    <NavLink className='nav-link' to='/'></NavLink>
+                    <NavLink className='mobile-link' to='/view_more'>
                         view more
                     </NavLink>
                 </div>
                 <Switch>
+                    <Route exact path='/' component={CompanyList} />
                     <Route exact path='/view_more' component={SearchResults} />
                 </Switch>
             </BrowserRouter>
