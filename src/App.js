@@ -1,17 +1,16 @@
-import './App.css';
-import SearchBar from './components/SearchBar/SearchBar';
-import CompanyList from './components/CompanyList/CompanyList';
-import SearchResults from './components/SearchResults/SearchResults';
-import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
 
-function App() {
+import AutocompletePage from './components/AutoComplete/index.js';
+// import CompanyList from './components/CompanyList/CompanyList';
+// import SearchResults from './components/SearchResults/SearchResults';
+// import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
+
+const App = () => {
     return (
         <div className='App'>
-            <SearchBar />
+            <AutocompletePage />
 
-            <BrowserRouter>
+            {/* <BrowserRouter>
                 <div className='mobile-menu'>
-                    <NavLink className='nav-link' to='/'></NavLink>
                     <NavLink className='nav-link' to='/results'>
                         view more
                     </NavLink>
@@ -20,9 +19,9 @@ function App() {
                     <Route exact path='/' component={CompanyList} />
                     <Route exact path='/results' component={SearchResults} />
                 </Switch>
-            </BrowserRouter>
+            </BrowserRouter> */}
         </div>
     );
-}
+};
 
 export default App;
