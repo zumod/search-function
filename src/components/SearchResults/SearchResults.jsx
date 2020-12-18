@@ -7,16 +7,23 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import CompanyData from '../../assets/data.json';
 
 const useStyles = makeStyles({
     table: {
         minWidth: 650,
+    },
+    paper: {    
+        marginLeft: 30,
+        marginTop: 100,
+        width: 1300,
     },
 });
 
 const createData = (name, calories, fat, carbs, protein) => {
     return { name, calories, fat, carbs, protein };
 };
+
 
 const rows = [
     createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
@@ -30,11 +37,14 @@ const SearchResults = () => {
     const classes = useStyles();
 
     return (
-        <TableContainer component={Paper}>
-            <Table className={classes.table} aria-label='simple table'>
+        <TableContainer component={Paper} className={classes.paper}>
+            <Table
+                className={classes.table}
+                aria-label='simple table'
+            >
                 <TableHead>
                     <TableRow>
-                        <TableCell>Search Results</TableCell>
+                        <TableCell>Results</TableCell>
                         <TableCell align='right'>Calories</TableCell>
                         <TableCell align='right'>Fat&nbsp;(g)</TableCell>
                         <TableCell align='right'>Carbs&nbsp;(g)</TableCell>

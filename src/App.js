@@ -1,25 +1,26 @@
 
 import AutocompletePage from './components/AutoComplete/index.js';
-// import CompanyList from './components/CompanyList/CompanyList';
-// import SearchResults from './components/SearchResults/SearchResults';
-// import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
+import CompanyList from './components/CompanyList/CompanyList';
+import SearchResults from './components/SearchResults/SearchResults';
+import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
+import './App.css';
 
 const App = () => {
     return (
         <div className='App'>
             <AutocompletePage />
 
-            {/* <BrowserRouter>
-                <div className='mobile-menu'>
+            <BrowserRouter>
+
                     <NavLink className='nav-link' to='/results'>
                         view more
                     </NavLink>
-                </div>
+
                 <Switch>
                     <Route exact path='/' component={CompanyList} />
                     <Route exact path='/results' component={SearchResults} />
                 </Switch>
-            </BrowserRouter> */}
+            </BrowserRouter>
         </div>
     );
 };

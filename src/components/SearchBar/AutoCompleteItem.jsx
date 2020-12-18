@@ -3,7 +3,6 @@ import React from 'react';
 const AutoCompleteItem = ({
     project_name,
     assigned_to,
-    task_number,
     status,
     onSelectItem,
     isHighlighted,
@@ -20,9 +19,11 @@ const AutoCompleteItem = ({
                     <p className='mb-0 font-weight-bold line-height-1'>
                         {project_name}
                     </p>
+                    <span className='small font-weight-bold'>Assigned to - </span>
                     <p className='mb-0 badge badge-primary'>
                         {assigned_to}
-                    </p>
+                    </p><span> </span>
+                    <span className='small font-weight-bold'>Status - </span>
                     <p
                         className={
                             status == 'Pending'

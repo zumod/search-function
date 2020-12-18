@@ -11,7 +11,11 @@ import Paper from '@material-ui/core/Paper';
 const useStyles = makeStyles({
     table: {
         minWidth: 650,
-        paddingLeft: 40
+    },
+    paper: {    
+        marginLeft: 30,
+        marginTop: 100,
+        width: 1300,
     },
 });
 
@@ -31,8 +35,12 @@ const CompanyList = () => {
     const classes = useStyles();
 
     return (
-        <TableContainer component={Paper}>
-            <Table className={classes.table} aria-label='simple table'>
+        <TableContainer component={Paper} className={classes.paper}>
+            <Table
+                className={classes.table}
+                size='small'
+                aria-label='simple table'
+            >
                 <TableHead>
                     <TableRow>
                         <TableCell>Company Name</TableCell>
