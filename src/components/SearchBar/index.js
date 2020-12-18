@@ -39,8 +39,10 @@ const AutoComplete = ({ data, onSelect }) => {
         setCursor(-1);
         scrollIntoView(0);
 
-        return data.filter((item) =>
-            item.status.toLowerCase().includes(search.toLowerCase()) || item.assigned_to.toLowerCase().includes(search.toLowerCase())
+        return data.filter(
+            (item) =>
+                item.status.toLowerCase().includes(search.toLowerCase()) ||
+                item.assigned_to.toLowerCase().includes(search.toLowerCase())
         );
     }, [data, search]);
 
@@ -108,7 +110,9 @@ const AutoComplete = ({ data, onSelect }) => {
                             onSelectItem={() => {
                                 hideSuggestion();
                                 setSearch(item.project_name);
-                                onSelect(item);
+                                onSelect(()=>{
+                                    return "Status: "+ item.status;
+                                });
                             }}
                             isHighlighted={cursor === idx ? true : false}
                             {...item}
