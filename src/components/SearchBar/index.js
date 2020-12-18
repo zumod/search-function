@@ -110,9 +110,7 @@ const AutoComplete = ({ data, onSelect }) => {
                             onSelectItem={() => {
                                 hideSuggestion();
                                 setSearch(item.project_name);
-                                onSelect(()=>{
-                                    return "Status: "+ item.status;
-                                });
+                                onSelect(item);
                             }}
                             isHighlighted={cursor === idx ? true : false}
                             {...item}
