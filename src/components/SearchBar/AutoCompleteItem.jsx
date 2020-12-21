@@ -26,9 +26,9 @@ const AutoCompleteItem = ({
                     <span className='small font-weight-bold'>Status - </span>
                     <p
                         className={
-                            status == 'Pending'
+                            status === 'Pending'
                                 ? 'mb-0 ml-2 badge badge-danger'
-                                : status == 'Completed'
+                                : status === 'Completed'
                                 ? 'mb-0 ml-2 badge badge-success'
                                 : 'mb-0 ml-2 badge badge-warning'
                         }

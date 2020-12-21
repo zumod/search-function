@@ -1,4 +1,3 @@
-
 import AutocompletePage from './components/AutoComplete/index.js';
 import CompanyList from './components/CompanyList/CompanyList';
 import SearchResults from './components/SearchResults/SearchResults';
@@ -11,10 +10,9 @@ const App = () => {
             <AutocompletePage />
 
             <BrowserRouter>
-
-                    <NavLink className='nav-link' to='/results'>
-                        view more
-                    </NavLink>
+                <NavLink className='nav-link' to='/results'>
+                    view more
+                </NavLink>
 
                 <Switch>
                     <Route exact path='/' component={CompanyList} />
