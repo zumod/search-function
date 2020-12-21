@@ -19,10 +19,11 @@ const AutoCompleteItem = ({
                     <p className='mb-0 font-weight-bold line-height-1'>
                         {project_name}
                     </p>
-                    <span className='small font-weight-bold'>Assigned to - </span>
-                    <p className='mb-0 badge badge-primary'>
-                        {assigned_to}
-                    </p><span> </span>
+                    <span className='small font-weight-bold'>
+                        Assigned to -{' '}
+                    </span>
+                    <p className='mb-0 badge badge-primary'>{assigned_to}</p>
+                    <span> </span>
                     <span className='small font-weight-bold'>Status - </span>
                     <p
                         className={
