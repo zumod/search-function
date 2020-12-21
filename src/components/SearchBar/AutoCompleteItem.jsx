@@ -1,4 +1,7 @@
 import React from 'react';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 const AutoCompleteItem = ({
     project_name,
@@ -8,13 +11,12 @@ const AutoCompleteItem = ({
     isHighlighted,
 }) => {
     return (
-        <li
-            className={`list-group-item ${
-                isHighlighted ? 'active highlighted' : ''
-            }`}
+        <List
+            className="list-group" style={{backgroundColor: 'white'}}
             onClick={onSelectItem}
         >
-            <div className='row'>
+            <ListItem>
+            <div className='row m-0 p-0 '>
                 <div className='col text-left'>
                     <p className='mb-0 font-weight-bold line-height-1'>
                         {project_name}
@@ -38,7 +40,9 @@ const AutoCompleteItem = ({
                     </p>
                 </div>
             </div>
-        </li>
+            </ListItem>
+            
+        </List>
     );
 };
 
