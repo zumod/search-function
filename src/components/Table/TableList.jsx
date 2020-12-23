@@ -54,6 +54,7 @@ const TableList = ({ data, title }) => {
                         <Table
                             className={classes.table}
                             aria-label='simple table'
+                            size='small'
                         >
                             <TableHead>
                                 <TableRow>
