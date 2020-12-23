@@ -65,7 +65,7 @@ const TableList = ({ data, title }) => {
                                         Tast Number
                                     </TableCell>
                                     <TableCell align='right'>
-                                        Assigned_to
+                                        Assigned To
                                     </TableCell>
                                     <TableCell align='right'>Status</TableCell>
                                 </TableRow>
