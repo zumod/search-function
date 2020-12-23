@@ -23,6 +23,7 @@ const AutoComplete = ({ data, onSelect }) => {
     const [search, setSearch] = useState('');
     const [cursor, setCursor] = useState(-1);
     const [tableData, setTableData] = useState([]);
+    const [tableTitle, setTableTitle] = useState('All Companies');
 
     const searchContainer = useRef(null);
     const searchResultRef = useRef(null);
@@ -61,6 +62,9 @@ const AutoComplete = ({ data, onSelect }) => {
         );
     };
     const handleViewMore = () => {
+        setTableTitle('Search Results');
+        
+        console.log('view more clicked');
         setTableData(
             data.filter(
                 (item) =>
@@ -280,7 +284,7 @@ const AutoComplete = ({ data, onSelect }) => {
             </div>
             <br />
             <br />
-            <TableList data={tableData} />
+            <TableList data={tableData} title={tableTitle} />
         </>
     );
 };

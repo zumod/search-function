@@ -22,17 +22,18 @@ const useStyles = makeStyles({
     },
 });
 
-const TableList = ({ data }) => {
+const TableList = ({ data, title }) => {
     useEffect(() => {
-        console.log('hii');
-        console.log(data);
+        // console.log('hii');
+        // console.log(data);
+        console.log(title);
     }, []);
     const classes = useStyles();
 
     return (
         <>
             <div className={classes.paper}>
-                All Companies
+                {title}
                 <Button
                     aria-controls='customized-menu'
                     aria-haspopup='true'
@@ -64,7 +65,7 @@ const TableList = ({ data }) => {
                                         Tast Number
                                     </TableCell>
                                     <TableCell align='right'>
-                                        Assigned To
+                                        Assigned_to
                                     </TableCell>
                                     <TableCell align='right'>Status</TableCell>
                                 </TableRow>
