@@ -1,5 +1,5 @@
 import React from 'react';
-import AutocompletePage from './components/SuggestionButtons/index.js';
+import AutocompletePage from './components/MainComponent/index.js';
 import './App.css';
 
 const App = () => {
