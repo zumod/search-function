@@ -63,7 +63,7 @@ const AutoComplete = ({ data, onSelect }) => {
     };
     const handleViewMore = () => {
         setTableTitle('Search Results');
-        
+        hideSuggestion();
         console.log('view more clicked');
         setTableData(
             data.filter(
