@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const AutoComplete = ({ data, onSelect }) => {
+const AutoComplete = ({ data, onSelect, type, setType }) => {
     const classes = useStyles();
     const [isVisbile, setVisiblity] = useState(false);
     const [search, setSearch] = useState('');
@@ -29,49 +29,34 @@ const AutoComplete = ({ data, onSelect }) => {
     const searchResultRef = useRef(null);
 
     const handleProjects = () => {
-        setTableData(
-            data.filter(
-                (item) =>
-                    item.status.toLowerCase().includes(search.toLowerCase()) ||
-                    item.assigned_to
-                        .toLowerCase()
-                        .includes(search.toLowerCase())
-            )
-        );
+        setType('projects');
     };
     const handleContractors = () => {
-        setTableData(
-            data.filter(
-                (item) =>
-                    item.status.toLowerCase().includes(search.toLowerCase()) ||
-                    item.assigned_to
-                        .toLowerCase()
-                        .includes(search.toLowerCase())
-            )
-        );
+        setType('contractors');
     };
     const handleResources = () => {
-        setTableData(
-            data.filter(
-                (item) =>
-                    item.status.toLowerCase().includes(search.toLowerCase()) ||
-                    item.assigned_to
-                        .toLowerCase()
-                        .includes(search.toLowerCase())
-            )
-        );
+        setType('resources');
     };
     const handleViewMore = () => {
         setTableTitle('Search Results');
         hideSuggestion();
         console.log('view more clicked');
         setTableData(
-            data.filter(
-                (item) =>
-                    item.status.toLowerCase().includes(search.toLowerCase()) ||
-                    item.assigned_to
-                        .toLowerCase()
-                        .includes(search.toLowerCase())
+            data.filter((item) =>
+                type !== 'All'
+                    ? item.type === type &&
+                      (item.status
+                          .toLowerCase()
+                          .includes(search.toLowerCase()) ||
+                          item.assigned_to
+                              .toLowerCase()
+                              .includes(search.toLowerCase()))
+                    : item.status
+                          .toLowerCase()
+                          .includes(search.toLowerCase()) ||
+                      item.assigned_to
+                          .toLowerCase()
+                          .includes(search.toLowerCase())
             )
         );
     };
@@ -100,36 +85,23 @@ const AutoComplete = ({ data, onSelect }) => {
         listItems[cursor] && scrollIntoView(listItems[cursor].offsetTop);
     }, [cursor]);
 
-    // const handleSearch = e => {
-    //     setSearch(e.target.value)
-    //     console.log(e.target.value)
-    //     setTableData(data.filter(
-    //         (item) =>
-    //             item.status.toLowerCase().includes(e.target.value.toLowerCase()) ||
-    //             item.assigned_to.toLowerCase().includes(e.target.value.toLowerCase())
-    //     ));
-    //     console.log(tableData)
-
-    // }
-
     const suggestions = useMemo(() => {
         if (!search) return data;
 
         setCursor(-1);
         scrollIntoView(0);
-        //    setTableData(data.filter(
-        //         (item) =>
-        //             item.status.toLowerCase().includes(search.toLowerCase()) ||
-        //             item.assigned_to.toLowerCase().includes(search.toLowerCase())
-        //     ));
 
-        //     console.log(tableData)
-        return data.filter(
-            (item) =>
-                item.status.toLowerCase().includes(search.toLowerCase()) ||
-                item.assigned_to.toLowerCase().includes(search.toLowerCase())
+        return data.filter((item) =>
+            type !== 'All'
+                ? item.type === type &&
+                  (item.status.toLowerCase().includes(search.toLowerCase()) ||
+                      item.assigned_to
+                          .toLowerCase()
+                          .includes(search.toLowerCase()))
+                : item.status.toLowerCase().includes(search.toLowerCase()) ||
+                  item.assigned_to.toLowerCase().includes(search.toLowerCase())
         );
-    }, [data, search]);
+    }, [data, search, type]);
 
     const handleClickOutside = (event) => {
         if (
@@ -168,11 +140,14 @@ const AutoComplete = ({ data, onSelect }) => {
 
     return (
         <>
-            <div style={{ height: '100%', left: '35vw' }} ref={searchContainer}>
+            <div
+                style={{ height: '100%', left: '35vw', marginLeft: '1vw' }}
+                ref={searchContainer}
+            >
                 {/* {tableData&&tableData[0].project_name}   */}
                 <div>
                     <TextField
-                    size="small"
+                        size='small'
                         label='Search tasks, @Users...'
                         type='text'
                         name='search'
@@ -212,6 +187,7 @@ const AutoComplete = ({ data, onSelect }) => {
                             color='primary'
                             onClick={handleProjects}
                             style={{ outline: 'none' }}
+                            disabled={type === 'projects'}
                         >
                             Projects
                         </Button>
@@ -225,6 +201,7 @@ const AutoComplete = ({ data, onSelect }) => {
                             color='primary'
                             onClick={handleContractors}
                             style={{ outline: 'none' }}
+                            disabled={type === 'contractors'}
                         >
                             Contractors
                         </Button>
@@ -238,6 +215,7 @@ const AutoComplete = ({ data, onSelect }) => {
                             color='primary'
                             onClick={handleResources}
                             style={{ outline: 'none' }}
+                            disabled={type === 'resources'}
                         >
                             Resources
                         </Button>
