@@ -1,10 +1,10 @@
 [
     {
-        "project_name": "Aerified",
-        "contractor_name": "Kirstyn",
+        "name": "Aerified",
         "tast_number": "16-618-6367",
         "assigned_to": "Godwin",
-        "status": "Ongoing"
+        "status": "Ongoing",
+        "type": "projects"
     },
     {
         "project_name": "Cardguard",

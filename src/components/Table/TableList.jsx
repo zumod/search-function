@@ -58,9 +58,9 @@ const TableList = ({ data, title }) => {
                         >
                             <TableHead>
                                 <TableRow>
-                                    <TableCell>Project Name</TableCell>
+                                    <TableCell>Name</TableCell>
                                     <TableCell align='right'>
-                                        Contractor Name
+                                        Type
                                     </TableCell>
                                     <TableCell align='right'>
                                         Tast Number
@@ -73,8 +73,7 @@ const TableList = ({ data, title }) => {
                             </TableHead>
                             <TableBody>
                                 {
-                                    data
-                                        ? data.map((item, index) => (
+                                    data ? data.map((item, index) => (
                                               <TableRow key={index}>
                                                   <TableCell
                                                       component='th'
@@ -97,15 +96,6 @@ const TableList = ({ data, title }) => {
                                               </TableRow>
                                           ))
                                         : 'No Results'
-                                    //     (<TableRow>
-                                    //     <TableCell align='right'>
-                                    //         gfdf
-                                    //     </TableCell>
-                                    //     <TableCell align='right'>gfdf</TableCell>
-                                    //     <TableCell align='right'>gfdf</TableCell>
-                                    //     <TableCell align='right'>gfdf</TableCell>
-                                    //     <TableCell align='right'>gfdf</TableCell>
-                                    // </TableRow>)
                                 }
                             </TableBody>
                         </Table>
