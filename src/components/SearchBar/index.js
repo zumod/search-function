@@ -86,7 +86,10 @@ const AutoComplete = ({ data, onSelect, type, setType }) => {
     }, [cursor]);
 
     const suggestions = useMemo(() => {
-        if (!search) return data;
+        if (!search && type === 'All') return data;
+        if (!search && type !== 'All') {
+            return data.filter((item) => item.type === type);
+        }
 
         setCursor(-1);
         scrollIntoView(0);
